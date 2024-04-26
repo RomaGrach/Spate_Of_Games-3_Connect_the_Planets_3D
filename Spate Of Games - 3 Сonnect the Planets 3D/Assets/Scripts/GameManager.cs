@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Authentication.ExtendedProtection;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     
     public float GravitationalConstant = 1;
+    public float RepelForce = 20f;
+    public float SpeedLimit = 20f;
     public float SimulationPeriod = 0.3f;
-    public float repelForce = 1f;
+    public GameObject ExplosionEffect;
     public GameObject[] CurrentCelestialBodies;
     public GameObject[][] CelestialBodies = new GameObject[6][];
     public GameObject[] Class_0;
@@ -47,24 +51,41 @@ public class GameManager : MonoBehaviour
                 {
                     if (Body1 != Body2)
                     {
-                        AddGravitationalForce(Body1, Body2, GravitationalConstant);
+                        AddGravitationalForce(Body1, Body2, GravitationalConstant, RepelForce, SpeedLimit, (Body1.GetComponent<Collision>().Repel && Body1.GetComponent<Collision>().Repelant == Body2));
                     }
                 }
             }
             StartTime = CurrTime;
         }
-
+        
     }
-    void AddGravitationalForce(GameObject attractor, GameObject target, float G)
+    void AddGravitationalForce(GameObject attractor, GameObject target, float G, float RepelF, float limit, bool Repel)
     {
         Rigidbody RigidAttractor = attractor.GetComponent<Rigidbody>();
         Rigidbody RigidTarget = target.GetComponent<Rigidbody>();
-        float mass = RigidAttractor.mass * RigidTarget.mass*G;
         Vector3 difference = RigidAttractor.position - RigidTarget.position;
         float distance = difference.magnitude;
-        float Magnitude = G * mass / Mathf.Pow(distance, 2);
         Vector3 Direction = difference.normalized;
+        ForceMode Fmode;
+        float Magnitude;
+        if (Repel)
+        {
+            Fmode = ForceMode.Impulse;
+            Magnitude = -RepelF * RigidAttractor.mass * RigidTarget.mass;
+        }
+        else
+        {
+            Fmode = ForceMode.Force;
+            float mass = RigidAttractor.mass * RigidTarget.mass * G;
+            Magnitude = G * mass / Mathf.Pow(distance, 2);
+        }
+        
         Vector3 Force = Direction * Magnitude;
-        target.GetComponent<Rigidbody>().AddForce(Force);
+        target.GetComponent<Rigidbody>().AddForce(Force, Fmode);
+        float x = RigidTarget.velocity.x;
+        float z = RigidTarget.velocity.z;
+        if (x > limit) x = limit;
+        if (z > limit) z = limit;
+        RigidTarget.velocity = new Vector3(x, 0f, z);
     }
 }
