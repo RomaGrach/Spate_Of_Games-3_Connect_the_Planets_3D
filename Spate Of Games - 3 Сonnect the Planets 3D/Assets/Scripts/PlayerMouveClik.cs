@@ -8,6 +8,7 @@ public class PlayerMouveClik : MonoBehaviour
 
     public GameObject nowCube;
     public LayerMask layer;
+    public float speed =1;
 
 
     // Start is called before the first frame update
@@ -21,19 +22,37 @@ public class PlayerMouveClik : MonoBehaviour
     {
         if (nowCube != null)
         {
+            Debug.Log("1111111111");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, layer))
             {
+                Debug.Log("222222222");
                 Debug.Log(hit.collider.tag);
                 //Instantiate(cub, hit.point, new Quaternion(0, 0, 0, 0));
                 if (hit.collider.tag == "ground")
                 {
+                    /*
+                    Debug.Log("33333333");
+                    float x = hit.point.x * speed;
+                    float y = nowCube.transform.position.y * speed;
+                    float z = hit.point.z * speed;
 
-                    float x = hit.point.x;
-                    float y = nowCube.transform.position.y;
-                    float z = hit.point.z;
                     nowCube.transform.position = new Vector3(x, y, z);
+                    Debug.Log("+++++++");
+                    */
+                    
+                    float x = (hit.point.x - nowCube.transform.position.x) * speed;
+                    float y = nowCube.transform.position.y * speed;
+                    float z = (hit.point.z - nowCube.transform.position.x) * speed;
+
+                    Vector3 a = hit.point - nowCube.transform.position;
+                    Debug.Log("a");
+                    Rigidbody rb = nowCube.GetComponent<Rigidbody>();
+                    rb.AddForce(a.x * speed * a.magnitude, 0, a.z * speed * a.magnitude, ForceMode.Force);
+                    
+                    Debug.Log("+++++++");
+                    
 
                 }
 
@@ -41,15 +60,18 @@ public class PlayerMouveClik : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            Debug.Log("4444444444");
             Debug.Log("press");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
+                Debug.Log("555555555");
                 //Instantiate(cub, hit.point, new Quaternion(0, 0, 0, 0));
                 Debug.Log(hit.collider.tag);
-                if (hit.collider.tag == "CelestialBody")
+                if (hit.collider.tag == "CelestialBody") //CelestialBody
                 {
+                    Debug.Log("666666666");
                     nowCube = hit.collider.gameObject;
 
                     //nowCube = ObjectPooler.ME.RequestObject("1", new Vector3(hit.point.x, 10f, 0), new Quaternion(0, 0, 0, 0));
