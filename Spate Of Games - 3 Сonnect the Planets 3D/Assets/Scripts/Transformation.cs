@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -20,7 +21,6 @@ public class Transformation : MonoBehaviour
         int ind = Random.Range(0, CelestialBodies.Length);
         Debug.Log(ind);
         CelestialBody = CelestialBodies[ind];
-        
         Debug.Log(CelestialBody);
     }
 
@@ -30,12 +30,19 @@ public class Transformation : MonoBehaviour
         currTime = Time.time - startTime;
         if (currTime >= Base_Timer)
         {
-            float tempMass = CelestialBody.GetComponent<Rigidbody>().mass;
+            Vector3 vel = GetComponent<Rigidbody>().velocity;
+            Vector3 drag = GetComponent<Rigidbody>().angularVelocity;
+            Vector3 pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            Debug.Log(vel);
+            Debug.Log(drag);
+            GetComponent<SphereCollider>().enabled = false;
+            Instantiate(CelestialBody, pos, transform.rotation);
             CelestialBody.GetComponent<Rigidbody>().mass = Mass;
-            Instantiate(CelestialBody, transform.position, transform.rotation);
-            CelestialBody.GetComponent<Rigidbody>().mass = tempMass;
+            CelestialBody.GetComponent<Rigidbody>().velocity = vel;
+            CelestialBody.GetComponent<Rigidbody>().angularVelocity = drag;
+            Debug.Log(CelestialBody.GetComponent<Rigidbody>().velocity);
+            Debug.Log(CelestialBody.GetComponent<Rigidbody>().angularVelocity);
             Destroy(gameObject);
-            startTime = Time.time;
         }
     }
 }

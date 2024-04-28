@@ -9,14 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6558847490608166893}
+  - component: {fileID: 6492601587777407705}
+  - component: {fileID: -7405650502946454986}
   - component: {fileID: 6925276230238090206}
   - component: {fileID: 6671940359357426696}
   - component: {fileID: 8502963867513063243}
   - component: {fileID: 23393797165924161}
-  - component: {fileID: 6492601587777407705}
   m_Layer: 0
   m_Name: protoBall
-  m_TagString: Untagged
+  m_TagString: ProtoPlanet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +37,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6492601587777407705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821587211399900259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63522e520872b6345b720f8ed387aac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Class: 1
+  Mass: 1
+  Base_Timer: 5
+  CelestialBody: {fileID: 0}
+  currTime: 0
+--- !u!114 &-7405650502946454986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821587211399900259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c901b24cdb31b2c4281a377b52db9294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 1
 --- !u!33 &6925276230238090206
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -134,20 +165,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6492601587777407705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821587211399900259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63522e520872b6345b720f8ed387aac3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Class: 1
-  Mass: 1
-  Base_Timer: 5
-  CelestialBody: {fileID: 0}
-  currTime: 0
