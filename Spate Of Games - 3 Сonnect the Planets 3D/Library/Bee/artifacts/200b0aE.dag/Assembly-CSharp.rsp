@@ -359,6 +359,7 @@
 "Assets/Scripts/PlayerMouveClik.cs"
 "Assets/Scripts/Test/Generator.cs"
 "Assets/Scripts/Transformation.cs"
+"Assets/Scripts/WallCollision.cs"
 -langversion:9.0
 
 /deterministic
