@@ -146,7 +146,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3724711218209189399}
   serializedVersion: 4
-  m_Mass: 3.4023447
+  m_Mass: 3.1548424
   m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}

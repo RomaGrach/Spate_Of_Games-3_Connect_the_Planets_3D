@@ -358,9 +358,11 @@
 "Assets/Scripts/generator.cs"
 "Assets/Scripts/PlayerMouveClik.cs"
 "Assets/Scripts/Progress.cs"
+"Assets/Scripts/RaycastAndMove.cs"
 "Assets/Scripts/Test/Generator.cs"
 "Assets/Scripts/Transformation.cs"
 "Assets/Scripts/WallCollision.cs"
+"Assets/Scripts/WallsMover.cs"
 -langversion:9.0
 
 /deterministic

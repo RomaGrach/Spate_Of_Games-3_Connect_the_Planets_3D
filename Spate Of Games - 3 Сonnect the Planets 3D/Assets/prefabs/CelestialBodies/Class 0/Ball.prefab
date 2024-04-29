@@ -52,8 +52,6 @@ MonoBehaviour:
   Class: 0
   protoCelestialBody: {fileID: 0}
   Repel: 0
-  RepelForce: 1
-  RepelForceAcc: 1
   Repelant: {fileID: 0}
   Velocity: {x: 0, y: 0, z: 0}
 --- !u!33 &8962450130539184704
@@ -174,4 +172,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
