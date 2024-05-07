@@ -9,6 +9,7 @@ public class PlayerMouveClik : MonoBehaviour
     public GameObject nowCube;
     public LayerMask layer;
     public float speed =1;
+    public AnimationCurve slowingCurve; // Кривая замедления
 
 
     // Start is called before the first frame update
@@ -41,6 +42,7 @@ public class PlayerMouveClik : MonoBehaviour
                     nowCube.transform.position = new Vector3(x, y, z);
                     Debug.Log("+++++++");
                     */
+
                     
                     float x = (hit.point.x - nowCube.transform.position.x) * speed;
                     float y = nowCube.transform.position.y * speed;
@@ -49,8 +51,29 @@ public class PlayerMouveClik : MonoBehaviour
                     Vector3 a = hit.point - nowCube.transform.position;
                     Debug.Log("a");
                     Rigidbody rb = nowCube.GetComponent<Rigidbody>();
-                    rb.AddForce(a.x * speed * a.magnitude, 0, a.z * speed * a.magnitude, ForceMode.Force);
-                    
+                    rb.AddForce(a.x * speed, 0, a.z * speed, ForceMode.Force);
+
+                    rb.velocity *= a.magnitude / rb.velocity.magnitude;
+
+                    /*
+                    Vector3 targetPosition = hit.point;
+
+                    // Вычисляем направление и дистанцию к целевой точке
+                    Vector3 direction = targetPosition - nowCube.transform.position;
+                    direction = new Vector3(direction.x, 0, direction.z);
+                    float distance = direction.magnitude;
+
+                    // Нормализуем направление
+                    direction.Normalize();
+
+                    // Вычисляем текущую скорость с использованием кривой замедления
+                    float currentSpeed = speed * slowingCurve.Evaluate(1 - Mathf.Clamp01(distance));
+
+                    // Применяем силу с учетом замедления
+                    Rigidbody rb = nowCube.GetComponent<Rigidbody>();
+                    rb.velocity = direction * currentSpeed;
+                    */
+
                     Debug.Log("+++++++");
                     
 

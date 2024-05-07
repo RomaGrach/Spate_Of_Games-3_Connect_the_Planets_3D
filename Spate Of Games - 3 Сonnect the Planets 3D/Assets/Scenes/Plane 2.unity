@@ -458,7 +458,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 5, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.3}
+  m_LocalScale: {x: 10, y: 10, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1055428783}
@@ -683,7 +683,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.5, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 0.3}
+  m_LocalScale: {x: 10, y: 10, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1055428783}
@@ -789,7 +789,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.5, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 0.3}
+  m_LocalScale: {x: 10, y: 10, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1055428783}
@@ -877,6 +877,7 @@ GameObject:
   - component: {fileID: 1305595986}
   - component: {fileID: 1305595985}
   - component: {fileID: 1305595987}
+  - component: {fileID: 1305595989}
   m_Layer: 0
   m_Name: PlayerMouvePlanet
   m_TagString: Untagged
@@ -900,7 +901,31 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 64
-  speed: 1
+  speed: 50
+  slowingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1305595986
 Transform:
   m_ObjectHideFlags: 0
@@ -930,6 +955,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerInfo:
     score: 0
+--- !u!114 &1305595989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305595984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab031ab547dbe4779acdcdf98660797f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
+  WallsPoint: []
+  Walls:
+  - {fileID: 1475255143}
+  - {fileID: 1095030360}
+  - {fileID: 934180201}
+  - {fileID: 1304030930}
+  GEN: {fileID: 1007220930}
+  Smesh: 0.75
 --- !u!1 &1475255143
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +1007,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -5, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.3}
+  m_LocalScale: {x: 10, y: 10, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1055428783}
@@ -1123,7 +1171,7 @@ Transform:
   m_GameObject: {fileID: 1789870918}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7184056, y: -0, z: -0, w: 0.69562453}
-  m_LocalPosition: {x: 0, y: 10, z: -0}
+  m_LocalPosition: {x: 0, y: 12.7, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1146,6 +1194,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   speed: 0
+  slowingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
