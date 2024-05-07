@@ -8,6 +8,9 @@ public class WallsMover : MonoBehaviour
     public LayerMask layer;
     public Vector3[] WallsPoint;
     public GameObject[] Walls;
+    public generator GEN;
+    public float Smesh = 0.75f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +34,21 @@ public class WallsMover : MonoBehaviour
             for (int i = 0; i < Walls.Length; i++)
             {
                 Walls[i].transform.position = new Vector3(WallsPoint[i].x, Walls[i].transform.position.y, WallsPoint[i].z);
+                
             }
+
+            if (GEN)
+            {
+                Vector2 LUA = new Vector2(WallsPoint[0].x * Smesh, WallsPoint[1].z * Smesh);
+                Vector2 RDA = new Vector2(WallsPoint[2].x * Smesh, WallsPoint[3].z * Smesh);
+
+                GEN.LeftUpAng = LUA;
+                GEN.RighDownAng = RDA;
+            }
+
         }
+
+
         
     }
 
