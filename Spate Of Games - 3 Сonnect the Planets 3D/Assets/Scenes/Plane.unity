@@ -463,17 +463,30 @@ MonoBehaviour:
   RepelForce: 1
   SpeedLimit: 20
   SimulationPeriod: 0.1
+  maxClass: 1
   ExplosionEffect: {fileID: 4018255841490550898, guid: b52231f0c16aa5145bda6f645ec64ed7, type: 3}
-  CurrentCelestialBodies: []
-  Class_0:
-  - {fileID: 1765855518410099952, guid: 3cd773f845bc5ba4e8d56ec0bbba20ae, type: 3}
-  Class_1:
-  - {fileID: 1963648205556484299, guid: 70bab56d5f770784c8aa0b88bcf6acfe, type: 3}
-  Class_2:
-  - {fileID: 3724711218209189399, guid: 8a906e9cd17cf764cbcee01ff860c4d4, type: 3}
-  Class_3:
-  - {fileID: 3724711218209189399, guid: 4a30739a2d827884e901305e9f58cdcf, type: 3}
-  Class_4: []
+  CelestialBodies:
+  - Items: []
+  - Items:
+    - {fileID: 1765855518410099952, guid: 3cd773f845bc5ba4e8d56ec0bbba20ae, type: 3}
+  - Items:
+    - {fileID: 1765855518410099952, guid: 9cecc3fb576f3af4f989263a6570f646, type: 3}
+  - Items:
+    - {fileID: 1765855518410099952, guid: 16e81aaf8a7308142b38933be397061c, type: 3}
+  - Items:
+    - {fileID: 1765855518410099952, guid: d8aeecbd4a566e64fb921ab89f2104c9, type: 3}
+  - Items:
+    - {fileID: 1765855518410099952, guid: 89b304e31e19abf4c89315d084ef0774, type: 3}
+  - Items:
+    - {fileID: 1765855518410099952, guid: 2ec3ce4b5f3c24e4691e7001fde36cee, type: 3}
+  - Items:
+    - {fileID: 1765855518410099952, guid: 66d69962bf1ec794583740cbea916672, type: 3}
+  - Items:
+    - {fileID: 1765855518410099952, guid: af81209d57f0e8e48864acc2de93a978, type: 3}
+  - Items:
+    - {fileID: 1765855518410099952, guid: 45b8fd98d793f4142a13a5fb1c3b340d, type: 3}
+  - Items:
+    - {fileID: 3724711218209189399, guid: 449c1ef7a8c97a647b1dfee47f92212b, type: 3}
 --- !u!4 &1007220929
 Transform:
   m_ObjectHideFlags: 0
@@ -501,17 +514,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a25fc5d2a56c4374acdb4801c90885b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemsBase:
-  - Items:
-    - {fileID: 3724711218209189399, guid: c71f42072c4942446bbf92e6a3ed93ad, type: 3}
+  ItemsBase: []
   ItemsOn: []
-  LeftUpAng: {x: 10, y: 10}
-  RighDownAng: {x: -10, y: -10}
+  LeftUpAng: {x: -10, y: -10}
+  RighDownAng: {x: 10, y: 10}
   high: 1
-  MaxClas: 0
-  MinClas: 0
-  TimeGener: 3
-  CountGen: 3
+  MaxClas: 1
+  MinClas: 1
+  TimeGener: 5
+  CountGen: 1
 --- !u!1 &1055428782
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +985,13 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 0
+  speed: 1
+  slowingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

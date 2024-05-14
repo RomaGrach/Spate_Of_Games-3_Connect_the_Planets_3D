@@ -6,36 +6,39 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
     public float GravitationalConstant = 1;
     public float RepelForce = 20f;
     public float SpeedLimit = 20f;
     public float SimulationPeriod = 0.3f;
+    public int maxClass = 1;
     public GameObject ExplosionEffect;
-    public GameObject[] CurrentCelestialBodies;
+    public List<ItemWave> CelestialBodies;
+    /*
     public GameObject[][] CelestialBodies = new GameObject[6][];
     public GameObject[] Class_0;
     public GameObject[] Class_1;
     public GameObject[] Class_2;
     public GameObject[] Class_3;
     public GameObject[] Class_4;
+    */
+    private GameObject[] CurrentCelestialBodies;
     private float StartTime;
     private float CurrTime;
+
+    [System.Serializable]
+    public class ItemWave
+    {
+        public List<GameObject> Items; // ןנוהלועû
+        public GameObject Get(int index)
+        {
+            return Items[index];
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         StartTime = Time.time;
-        //Debug.Log(Class_0[0].tag);
-        CelestialBodies[0] = Class_0;
-        //Debug.Log(Class_1);
-        CelestialBodies[1] = Class_1;
-        //Debug.Log(Class_2);
-        CelestialBodies[2] = Class_2;
-        //Debug.Log(Class_3);
-        CelestialBodies[3] = Class_3;
-        //Debug.Log(Class_4);
-        CelestialBodies[4] = Class_4;
     }
 
     // Update is called once per frame
