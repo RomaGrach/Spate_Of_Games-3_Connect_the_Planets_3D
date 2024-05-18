@@ -356,6 +356,7 @@
 "Assets/Scripts/Collision.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/generator.cs"
+"Assets/Scripts/mainMenue.cs"
 "Assets/Scripts/PlayerMouveClik.cs"
 "Assets/Scripts/Progress.cs"
 "Assets/Scripts/RaycastAndMove.cs"
